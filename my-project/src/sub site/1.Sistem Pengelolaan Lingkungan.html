@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pengelolaan Lingkungan - PT PLN Indonesia Power UBP Bukittinggi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        pln: {
+                            blue: '#005696',
+                            lightBlue: '#00a3e0',
+                            green: '#009b4d',
+                            yellow: '#f8d100',
+                            dark: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 86, 150, 0.88) 0%, rgba(0, 155, 77, 0.82) 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-slate-200 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Name (Teks Saja Tanpa Logo) -->
+                <a href="#beranda" class="flex flex-col group py-1">
+                    <span class="block text-xs font-bold tracking-wider text-slate-500 uppercase">PLN Indonesia Power</span>
+                    <span class="block text-base sm:text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-pln-blue transition-colors">UBP Bukittinggi</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-1 font-medium text-sm text-slate-600">
+                    <a href="#beranda" class="px-3.5 py-2 rounded-lg hover:text-pln-blue hover:bg-slate-100 transition-colors">Beranda</a>
+                    <a href="#profil" class="px-3.5 py-2 rounded-lg hover:text-pln-blue hover:bg-slate-100 transition-colors">Profil Unit</a>
+                    <a href="#aspek" class="px-3.5 py-2 rounded-lg hover:text-pln-blue hover:bg-slate-100 transition-colors">Aspek Lingkungan</a>
+                    <a href="#galeri" class="px-3.5 py-2 rounded-lg hover:text-pln-blue hover:bg-slate-100 transition-colors">Galeri & Sertifikat</a>
+                    <!-- Button Navigasi Tim Lingkungan -->
+                    <a href="#tim-lingkungan" class="px-3.5 py-2 rounded-lg hover:text-emerald-700 hover:bg-emerald-50 text-emerald-700 font-semibold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-users text-xs"></i> Foto Tim Lingkungan
+                    </a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#aspek" class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>Program Hijau</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white/95 px-4 pt-3 pb-6 space-y-2">
+            <a href="#beranda" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-emerald-700">Beranda</a>
+            <a href="#profil" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-emerald-700">Profil Unit</a>
+            <a href="#aspek" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-emerald-700">Aspek Lingkungan</a>
+            <a href="#galeri" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-emerald-700">Galeri & Sertifikat</a>
+            <a href="#tim-lingkungan" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-emerald-700 font-semibold bg-emerald-50 hover:bg-emerald-100">Foto Tim Lingkungan</a>
+        </div>
+    </header>
+
+    <!-- ================= 1. MENU BERANDA ================= -->
+    <main id="beranda">
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden bg-slate-900 text-white py-24 md:py-32">
+            <!-- Background Image with Overlay (Foto PLTA Maninjau) -->
+            <div class="absolute inset-0 z-0">
+                <img src="foto unit/ubp bukittinggi.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1920&q=80';" alt="Pembangkit Listrik PLTA Maninjau" class="w-full h-full object-cover opacity-35">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/15 text-emerald-200 backdrop-blur-sm mb-6 border border-white/20">
+                        <i class="fa-solid fa-seedling"></i> Komitmen Energi Bersih & Berkelanjutan
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+                        Menjaga Keseimbangan Alam, Menerangi Sumatera Barat
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-100 font-normal leading-relaxed mb-8">
+                        PT PLN Indonesia Power UBP Bukittinggi berdedikasi menghasilkan energi listrik hijau ramah lingkungan melalui pemanfaatan potensi air berkelanjutan dan program pelestarian ekosistem danau serta sungai.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#aspek" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-lg hover:shadow-emerald-500/25">
+                            <i class="fa-solid fa-compass"></i>
+                            Eksplorasi Program Lingkungan
+                        </a>
+                        <a href="#profil" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold backdrop-blur-sm border border-white/30 transition-all">
+                            <i class="fa-solid fa-circle-info"></i>
+                            Profil Perusahaan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil UBP Bukittinggi -->
+        <section id="profil" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold tracking-wider text-emerald-700 bg-emerald-50 uppercase">
+                            Tentang Perusahaan
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+                            Profil PT PLN Indonesia Power UBP Bukittinggi
+                        </h2>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Unit Bisnis Pembangkitan (UBP) Bukittinggi merupakan salah satu unit strategis dari PT PLN Indonesia Power yang mengoperasikan pembangkit listrik tenaga air (PLTA) di wilayah Sumatera Barat. 
+                        </p>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Dengan mengandalkan energi baru terbarukan (EBT) berbasis tenaga air, UBP Bukittinggi memegang peranan krusial dalam menyalurkan listrik andal tanpa emisi karbon berbahaya, sembari secara konsisten menjalankan tata kelola lingkungan terpadu bersama masyarakat dan pemangku kepentingan.
+                        </p>
+
+                        <!-- Key Metrics -->
+                        <div class="grid grid-cols-3 gap-4 pt-4">
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                                <span class="block text-2xl font-black text-emerald-600">100%</span>
+                                <span class="text-xs font-medium text-slate-500">Energi Terbarukan (EBT)</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                                <span class="block text-2xl font-black text-pln-blue">3 Unit</span>
+                                <span class="text-xs font-medium text-slate-500">Pembangkit PLTA</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                                <span class="block text-2xl font-black text-teal-600">PROPER</span>
+                                <span class="text-xs font-medium text-slate-500">Ketaatan Lingkungan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Showcase -->
+                    <div class="lg:col-span-6 relative">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="foto unit/ubp bukittinggi landscape.jpeg" alt="Ekosistem Alam Danau dan Air" class="w-full h-80 sm:h-96 object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-xl border border-slate-100 max-w-xs hidden sm:block">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-water"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-900">Konservasi Air DAS</h4>
+                                    <p class="text-xs text-slate-500">Pelestarian Danau Maninjau & Singkarak</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-Unit Pembangkit (Grid Cards) -->
+                <div class="mt-24">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Sub-Unit Pembangkit Listrik</h3>
+                        <p class="text-slate-600 mt-2 text-sm sm:text-base">Pembangkit Listrik Tenaga Air (PLTA) ramah lingkungan di bawah naungan UBP Bukittinggi.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- PLTA Maninjau (Foto Unit) -->
+                        <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col group">
+                            <div class="relative h-52 overflow-hidden">
+                                <img src="foto unit/plta maninjau.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80';" alt="PLTA Maninjau" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-3 left-3 bg-emerald-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                    Kab. Agam
+                                </span>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-900 mb-2">PLTA Maninjau</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                        Memanfaatkan debit air Danau Maninjau dengan kapasitas 4 x 17 MW (Total 68 MW). Berkomitmen aktif dalam program revitalisasi dan pembersihan gulma danau demi kelestarian daya dukung air.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 font-semibold">
+                                    <span><i class="fa-solid fa-bolt text-amber-500 mr-1"></i> 68 MW</span>
+                                    <span><i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> EBT 100%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PLTA Singkarak (Foto Unit) -->
+                        <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col group">
+                            <div class="relative h-52 overflow-hidden">
+                                <img src="foto unit/plta singkarak.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1439853941329-a99ce0457e8a?auto=format&fit=crop&w=600&q=80';" alt="PLTA Singkarak" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-3 left-3 bg-pln-blue/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                    Kab. Tanah Datar / Solok
+                                </span>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-900 mb-2">PLTA Singkarak</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                        Pembangkit hidro berkapasitas 4 x 43.75 MW (Total 175 MW) yang memanfaatkan potensi Danau Singkarak. Fokus pada program reboisasi hulu tangkapan air dan pemberdayaan perikanan lokal ramah lingkungan.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 font-semibold">
+                                    <span><i class="fa-solid fa-bolt text-amber-500 mr-1"></i> 175 MW</span>
+                                    <span><i class="fa-solid fa-tree text-emerald-600 mr-1"></i> Konservasi DAS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PLTA Batang Agam (Foto Intake BTA) -->
+                        <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col group">
+                            <div class="relative h-52 overflow-hidden">
+                                <img src="foto unit/intake bta.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80';" alt="Intake & Bendung PLTA Batang Agam" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-3 left-3 bg-teal-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                    Kab. Lima Puluh Kota
+                                </span>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-900 mb-2">PLTA Batang Agam</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                        Pembangkit hidro jenis run-of-river dengan daya 3 x 3.5 MW (Total 10.5 MW). Mengutamakan pengelolaan sedimentasi sungai, pengendalian erosi tebing, dan pemilahan sampah air intake.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 font-semibold">
+                                    <span><i class="fa-solid fa-bolt text-amber-500 mr-1"></i> 10.5 MW</span>
+                                    <span><i class="fa-solid fa-water-ladder text-emerald-600 mr-1"></i> Run-of-River</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visi dan Misi Lingkungan -->
+                <div class="mt-24 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-xl">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Komitmen Kami</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mt-1">Visi & Misi Pengelolaan Lingkungan</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                        <!-- Visi -->
+                        <div class="md:col-span-5 bg-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-white/10 flex flex-col justify-center">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center font-black text-xl mb-4">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-emerald-300 mb-2">Visi Lingkungan</h4>
+                            <p class="text-slate-200 text-sm leading-relaxed">
+                                "Menjadi unit pembangkit tenaga listrik terkemuka berbasis EBT yang unggul, andal, berwawasan lingkungan global, serta berkesinambungan bagi bumi Sumatera Barat."
+                            </p>
+                        </div>
+
+                        <!-- Misi -->
+                        <div class="md:col-span-7 bg-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-white/10">
+                            <div class="w-12 h-12 rounded-xl bg-pln-lightBlue text-slate-950 flex items-center justify-center font-black text-xl mb-4">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-sky-300 mb-3">Misi Lingkungan</h4>
+                            <ul class="space-y-3 text-sm text-slate-200">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                    <span>Menjalankan operasional pembangkitan PLTA yang taat regulasi lingkungan nasional dan standar internasional (ISO 14001).</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                    <span>Menjaga kelestarian ekosistem dan keanekaragaman hayati di Daerah Aliran Sungai (DAS) Maninjau, Singkarak, dan Batang Agam.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                    <span>Mengurangi jejak karbon dan meminimalkan limbah melalui efisiensi sumber daya serta circular economy.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-emerald-400 mt-1"></i>
+                                    <span>Mendorong kemandirian masyarakat sekitar pembangkit melalui program TJSL/CSR bertema lingkungan hidup.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= 2. MENU ASPEK LINGKUNGAN ================= -->
+    <section id="aspek" class="py-20 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold tracking-wider text-emerald-700 bg-emerald-100 uppercase">
+                    Aksi Nyata Hijau
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+                    Aspek & Program Kerja Lingkungan
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Implementasi nyata program konservasi dan perlindungan lingkungan hidup yang dikelola oleh UBP Bukittinggi di sekitar unit kerja.
+                </p>
+            </div>
+
+            <!-- Program Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Program 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+                                Konservasi Air
+                            </span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Danau Maninjau</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Konservasi & Pembersihan DAS Maninjau</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Program rutin pembersihan eceng gondok, pemantauan kualitas baku mutu air danau, dan penataan sempadan untuk menjaga kelangsungan operasional turbin dan biota danau.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="konversi DAS SECOND.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                            <span>Pelajari Rincian Program</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                                Penghijauan Hulu
+                            </span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Wilayah Tangkapan Air</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Reboisasi & Penanaman Pohon Pelindung</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Penanaman ribuan bibit pohon endemik di area catchment area DAS Singkarak dan Batang Agam guna mencegah sedimentasi dan memelihara resapan air tanah.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="reboisasi second.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                            <span>Pelajari Rincian Program</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">
+                                Safe Operations
+                            </span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Semua Unit PLTA</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pengelolaan Limbah B3 Berstandar KLHK</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Tata kelola penampungan oli bekas, aki, dan material operasional beracun dengan fasilitas TPS Limbah B3 berizin resmi dan pengangkutan pihak ketiga tersertifikasi.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="pengelolaan limbah second.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                            <span>Pelajari Rincian Program</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-100">
+                                Reduksi Karbon
+                            </span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Bukittinggi</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Efisiensi Energi & Reduksi Emisi GRK</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Penerapan manajemen efisiensi daya internal gedung kantor, pemasangan solar panel rooftop pembantu, serta inventarisasi gas rumah kaca (GRK) periodik.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="efisiensi energi second.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                            <span>Pelajari Rincian Program</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 5 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-100">
+                                TJSL / CSR
+                            </span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Komunitas Lokal</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pemberdayaan Bank Sampah & Ekowisata</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Pendampingan kelompok masyarakat lokal dalam pengolahan sampah organik menjadi pupuk kompos dan pengembangan wisata alam berbasis edukasi lingkungan.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="ikan bilih second.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                            <span>Pelajari Rincian Program</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 6 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">
+                                Biodiversitas
+                            </span>
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Batang Agam & Singkarak</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pelestarian Ikan Bilih & Flora Endemik</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Kolaborasi riset konservasi ikan bilih khas Danau Singkarak serta penjagaan keanekaragaman flora lokal di sekeliling reservoir pembangkit.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="7.Pelestarian Ikan Bilih & Flora Endemik.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                            <span>Pelajari Rincian Program</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. MENU GALERI & SERTIFIKASI ================= -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold tracking-wider text-pln-blue bg-blue-50 uppercase">
+                    Penghargaan & Kredibilitas
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+                    Galeri Sertifikat Lingkungan
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Bukti komitmen dan pengakuan resmi atas kepatuhan standar mutu lingkungan hidup tingkat nasional dan internasional. Klik gambar untuk melihat pratinjau resolusi tinggi.
+                </p>
+            </div>
+
+            <!-- Certificate Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Sertifikat 1 -->
+                <div class="gallery-card group relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                     data-title="Sertifikat ISO 14001:2015"
+                     data-desc="Sistem Manajemen Lingkungan Berstandar Internasional untuk Unit Pembangkitan PLTA UBP Bukittinggi."
+                     data-img="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1000&q=80">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80" alt="ISO 14001" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <span class="text-xs font-semibold text-emerald-600 uppercase">Internasional</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">ISO 14001:2015</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sistem Manajemen Lingkungan</p>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Sertifikat
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 2 -->
+                <div class="gallery-card group relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                     data-title="Penghargaan PROPER Hijau KLHK"
+                     data-desc="Kinerja Pengelolaan Lingkungan Hidup melebihi ketaatan (Beyond Compliance) dari Kementerian Lingkungan Hidup dan Kehutanan RI."
+                     data-img="https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&w=1000&q=80">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&w=600&q=80" alt="PROPER Hijau" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <span class="text-xs font-semibold text-emerald-600 uppercase">Nasional</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">PROPER Hijau KLHK</h4>
+                        <p class="text-xs text-slate-500 mt-1">Beyond Compliance Lingkungan</p>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Sertifikat
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 3 -->
+                <div class="gallery-card group relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                     data-title="Sertifikasi SMK3 & Zero Accident"
+                     data-desc="Penerapan Sistem Manajemen Keselamatan, Kesehatan Kerja, dan Lingkungan Hidup dengan raihan jam kerja aman tanpa kecelakaan."
+                     data-img="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=1000&q=80">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80" alt="Zero Accident" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <span class="text-xs font-semibold text-pln-blue uppercase">Kemenaker</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">Zero Accident Award</h4>
+                        <p class="text-xs text-slate-500 mt-1">Keselamatan & K3 Lingkungan</p>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Sertifikat
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 4 -->
+                <div class="gallery-card group relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                     data-title="Sertifikat ISO 50001:2018"
+                     data-desc="Sistem Manajemen Energi untuk Efisiensi dan Reduksi Intensitas Emisi Karbon di Unit PLTA UBP Bukittinggi."
+                     data-img="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="ISO 50001" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <span class="text-xs font-semibold text-teal-600 uppercase">Internasional</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">ISO 50001:2018</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sistem Manajemen Energi</p>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Sertifikat
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. SECTION TIM LINGKUNGAN (3 PERSONIL) ================= -->
+    <section id="tim-lingkungan" class="py-20 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold tracking-wider text-emerald-700 bg-emerald-100 uppercase">
+                    Struktur & SDM
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+                    Tim Pengelolaan Lingkungan
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Personil profesional dan berdedikasi yang mengawal program kepatuhan lingkungan, PROPER, efisiensi energi, dan pelestarian ekosistem di seluruh unit PLTA UBP Bukittinggi.
+                </p>
+            </div>
+
+            <!-- Team Grid (3 Personil) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Personil 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-72 overflow-hidden bg-slate-200">
+                        <img src="foto team lingkungan/budi.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';" alt="Team Leader Lingkungan" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            Lead Officer
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Budi Pramadian</h3>
+                            <p class="text-xs font-semibold text-emerald-600 mb-3">Team Leader Lingkungan Hidup</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Bertanggung jawab memimpin perumusan strategi kepatuhan lingkungan, integrasi ISO 14001:2015, koordinasi pelaporan PROPER KLHK, serta pengawasan audit mutu lingkungan di seluruh PLTA.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-solid fa-award text-emerald-600 mr-1"></i> ISO Lead Auditor</span>
+                            <span><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> UBP Bukittinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personil 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-72 overflow-hidden bg-slate-200">
+                        <img src="foto team lingkungan/ajo.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80';" alt="Environmental Specialist" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 bg-pln-blue text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            Junior Officer Lingkungan UBP Bukittinggi
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Sepri Fajriadi</h3>
+                            <p class="text-xs font-semibold text-pln-blue mb-3">Junior Officer Lingkungan UBP Bukittinggi</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Mengelola pemantauan kualitas baku mutu air di Danau Maninjau, Danau Singkarak, dan Batang Agam, tata kelola manifest TPS Limbah B3, serta penanganan sedimentasi intake air.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-solid fa-water text-pln-blue mr-1"></i> Water Quality</span>
+                            <span><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> UBP Bukittinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personil 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-72 overflow-hidden bg-slate-200">
+                        <img src="tim-lingkungan-3.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80';" alt="Community & Biodiversity Officer" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 bg-teal-700 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            Helper Lingkungan UBP Bukittinggi
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Cindy</h3>
+                            <p class="text-xs font-semibold text-teal-700 mb-3">Helper Lingkungan UBP Bukittinggi</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Bertanggung jawab atas administrasi dan pengendalian dokumen kepatuhan lingkungan, pemantauan data kualitas serta pemakaian air, dan dokumentasi program CSR, guna memastikan akurasi data operasional serta kelancaran pelaporan berkala.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                            <span><i class="fa-solid fa-tree text-teal-700 mr-1"></i> CSR & Sustainability Support</span>
+                            <span><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> UBP Bukittinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= LIGHTBOX / MODAL PREVIEW ================= -->
+    <div id="imageModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <!-- Close Button -->
+            <button id="closeModalBtn" class="absolute top-4 right-4 w-9 h-9 bg-slate-900/70 hover:bg-slate-900 text-white rounded-full flex items-center justify-center transition-colors z-10">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <!-- Modal Image -->
+            <div class="max-h-[65vh] overflow-hidden bg-slate-100 flex items-center justify-center">
+                <img id="modalImg" src="" alt="Certificate Preview" class="w-full h-full object-contain">
+            </div>
+            <!-- Modal Content -->
+            <div class="p-6 bg-white border-t border-slate-100">
+                <h3 id="modalTitle" class="text-xl font-bold text-slate-900">Judul Sertifikat</h3>
+                <p id="modalDesc" class="text-sm text-slate-600 mt-2 leading-relaxed">Deskripsi penghargaan dan detail sertifikasi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Col 1: Unit Info (Teks Saja Tanpa Logo) -->
+                <div class="md:col-span-5 space-y-3">
+                    <div>
+                        <h4 class="font-extrabold text-white text-base">PT PLN Indonesia Power</h4>
+                        <p class="text-xs text-slate-400 font-medium">UBP Bukittinggi</p>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed pr-6">
+                        Penyedia energi listrik hidro ramah lingkungan dengan komitmen teguh terhadap pelestarian ekosistem dan keberlanjutan alam Nusantara.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigasi Cepat -->
+                <div class="md:col-span-3 space-y-3">
+                    <h5 class="font-bold text-white uppercase text-xs tracking-wider">Navigasi Halaman</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#beranda" class="hover:text-emerald-400 transition-colors">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-emerald-400 transition-colors">Profil Unit UBP</a></li>
+                        <li><a href="#aspek" class="hover:text-emerald-400 transition-colors">Aspek & Program Kerja</a></li>
+                        <li><a href="#galeri" class="hover:text-emerald-400 transition-colors">Galeri Sertifikat</a></li>
+                        <li><a href="#tim-lingkungan" class="hover:text-emerald-400 transition-colors">Foto Tim Lingkungan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Kontak & Unit PLTA -->
+                <div class="md:col-span-4 space-y-3">
+                    <h5 class="font-bold text-white uppercase text-xs tracking-wider">Wilayah Operasional</h5>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-droplet text-emerald-400 text-xs"></i> PLTA Maninjau (Kab. Agam)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-droplet text-emerald-400 text-xs"></i> PLTA Singkarak (Kab. Solok & Tanah Datar)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-droplet text-emerald-400 text-xs"></i> PLTA Batang Agam (Kab. Lima Puluh Kota)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 mt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 PT PLN Indonesia Power UBP Bukittinggi. All Rights Reserved.</p>
+                <div class="flex items-center gap-4">
+                    <span class="hover:text-slate-400 cursor-pointer">Kebijakan Privasi</span>
+                    <span>&bull;</span>
+                    <span class="hover:text-slate-400 cursor-pointer">Sistem Manajemen Terpadu</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on clicking any navigation link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // 2. Lightbox / Modal Certificate Preview
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+
+        galleryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const imgUrl = card.getAttribute('data-img');
+                const title = card.getAttribute('data-title');
+                const desc = card.getAttribute('data-desc');
+
+                modalImg.src = imgUrl;
+                modalTitle.textContent = title;
+                modalDesc.textContent = desc;
+
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Handler Penutupan Modal
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Menutup modal dengan tombol ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
