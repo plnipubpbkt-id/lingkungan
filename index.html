@@ -47,7 +47,7 @@
             background: linear-gradient(135deg, rgba(4, 45, 66, 0.92) 0%, rgba(0, 86, 150, 0.85) 45%, rgba(0, 128, 94, 0.88) 100%);
         }
 
-        /* ---- Nature-inspired ambient motion (kept to one deliberate moment: the hero) ---- */
+        /* ---- Nature-inspired ambient motion ---- */
         @keyframes leafDrift {
             0%   { transform: translate(0, 0) rotate(0deg); }
             50%  { transform: translate(-14px, -22px) rotate(8deg); }
@@ -69,7 +69,7 @@
             .leaf-float, .leaf-float-slow, .ripple-ring { animation: none; }
         }
 
-        /* ---- Wave section dividers (evokes flowing water for a hydro-power unit) ---- */
+        /* ---- Wave section dividers ---- */
         .wave-divider { line-height: 0; }
         .wave-divider svg { display: block; width: 100%; height: auto; }
 
@@ -87,11 +87,10 @@
 
         #backToTop { transition: opacity 0.3s ease, transform 0.3s ease; }
 
-        /* ---- Penyesuaian tampilan mobile (Android & iOS) - tema tetap sama ---- */
+        /* ---- Penyesuaian tampilan mobile ---- */
         html { -webkit-text-size-adjust: 100%; }
         body { overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
 
-        /* Hormati notch / safe-area iPhone tanpa mengubah tema */
         header.sticky {
             padding-top: env(safe-area-inset-top);
         }
@@ -100,29 +99,23 @@
             right: calc(1.5rem + env(safe-area-inset-left));
         }
 
-        /* Tipografi lebih nyaman di layar kecil, tetap proporsional di desktop */
         @media (max-width: 767px) {
             h1 { font-size: clamp(1.75rem, 6vw, 2.25rem) !important; line-height: 1.25 !important; }
             h2 { font-size: clamp(1.5rem, 5.5vw, 1.875rem) !important; }
             h3 { font-size: clamp(1.125rem, 4.5vw, 1.375rem) !important; }
             section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
 
-            /* Target sentuh lebih besar & nyaman untuk jari (Android/iOS) */
             a, button { -webkit-tap-highlight-color: rgba(0,155,77,0.15); }
             .mobile-nav-link { min-height: 48px; display: flex; align-items: center; }
             #mobileMenuBtn { min-width: 44px; min-height: 44px; }
 
-            /* Kartu & tombol jadi full-width, gap lebih rapat agar tidak sesak */
             .grid { row-gap: 1.25rem; }
 
-            /* Hero tetap penuh tapi padding disesuaikan agar teks tidak terlalu turun */
             #beranda section.relative.overflow-hidden { padding-top: 3.5rem; padding-bottom: 4.5rem; }
         }
 
-        /* Cegah gambar besar merusak layout di layar sempit */
         img { max-width: 100%; height: auto; }
 
-        /* Scrollbar custom disembunyikan di mobile agar tampilan lebih rapi (fungsi scroll tetap normal) */
         @media (max-width: 767px) {
             ::-webkit-scrollbar { width: 0px; background: transparent; }
         }
@@ -134,7 +127,7 @@
     <header class="sticky top-0 z-50 glass-nav border-b border-slate-200 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Brand Name (Teks Saja Tanpa Logo) -->
+                <!-- Brand Name -->
                 <a href="#beranda" class="flex flex-col group py-1">
                     <span class="block text-xs font-bold tracking-wider text-slate-500 uppercase">PLN Indonesia Power</span>
                     <span class="block text-base sm:text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-pln-blue transition-colors">UBP Bukittinggi</span>
@@ -185,19 +178,16 @@
     <main id="beranda">
         <!-- Hero Section -->
         <section class="relative overflow-hidden bg-slate-900 text-white py-24 md:py-32">
-            <!-- Background Image with Overlay (Foto PLTA Maninjau) -->
             <div class="absolute inset-0 z-0">
                 <img src="foto unit/ubp bukittinggi.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1920&q=80';" alt="Pembangkit Listrik PLTA Maninjau" class="w-full h-full object-cover opacity-35">
                 <div class="absolute inset-0 hero-gradient"></div>
             </div>
 
-            <!-- Decorative water ripples (hydro-power motif) -->
             <div class="absolute right-[6%] top-1/2 -translate-y-1/2 hidden lg:block z-0 pointer-events-none" aria-hidden="true">
                 <div class="ripple-ring w-40 h-40 -left-20 -top-20"></div>
                 <div class="ripple-ring w-40 h-40 -left-20 -top-20" style="animation-delay: 1.5s;"></div>
                 <div class="ripple-ring w-40 h-40 -left-20 -top-20" style="animation-delay: 3s;"></div>
             </div>
-            <!-- Decorative drifting leaves -->
             <i class="fa-solid fa-leaf text-emerald-300/25 text-5xl absolute top-24 right-[18%] leaf-float hidden md:block pointer-events-none" aria-hidden="true"></i>
             <i class="fa-solid fa-leaf text-emerald-200/20 text-3xl absolute bottom-32 right-[30%] leaf-float-slow hidden md:block pointer-events-none" aria-hidden="true"></i>
             <i class="fa-solid fa-droplet text-sky-200/20 text-4xl absolute bottom-20 right-[10%] leaf-float-slow hidden md:block pointer-events-none" aria-hidden="true"></i>
@@ -226,7 +216,6 @@
                 </div>
             </div>
 
-            <!-- Wave Divider into Profil Unit -->
             <div class="wave-divider absolute bottom-0 left-0 right-0 z-10 pointer-events-none" aria-hidden="true">
                 <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
                     <path fill="#ffffff" d="M0,32 C240,80 480,0 720,24 C960,48 1200,88 1440,40 L1440,90 L0,90 Z"></path>
@@ -288,7 +277,7 @@
                     </div>
                 </div>
 
-                <!-- Sub-Unit Pembangkit (Grid Cards) -->
+                <!-- Sub-Unit Pembangkit -->
                 <div class="mt-24">
                     <div class="text-center max-w-2xl mx-auto mb-12">
                         <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Sub-Unit Pembangkit Listrik</h3>
@@ -296,7 +285,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- PLTA Maninjau (Foto Unit) -->
+                        <!-- PLTA Maninjau -->
                         <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col group">
                             <div class="relative h-52 overflow-hidden">
                                 <img src="foto unit/plta maninjau.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80';" alt="PLTA Maninjau" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
@@ -318,7 +307,7 @@
                             </div>
                         </div>
 
-                        <!-- PLTA Singkarak (Foto Unit) -->
+                        <!-- PLTA Singkarak -->
                         <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col group">
                             <div class="relative h-52 overflow-hidden">
                                 <img src="foto unit/plta singkarak.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1439853941329-a99ce0457e8a?auto=format&fit=crop&w=600&q=80';" alt="PLTA Singkarak" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
@@ -340,7 +329,7 @@
                             </div>
                         </div>
 
-                        <!-- PLTA Batang Agam (Foto Intake BTA) -->
+                        <!-- PLTA Batang Agam -->
                         <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col group">
                             <div class="relative h-52 overflow-hidden">
                                 <img src="foto unit/intake bta.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80';" alt="Intake & Bendung PLTA Batang Agam" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
@@ -413,9 +402,8 @@
             </div>
         </section>
 
-        <!-- ================= VIDEO PROFIL UNIT (STREAMING GOOGLE DRIVE) ================= -->
+        <!-- ================= VIDEO PROFIL UNIT ================= -->
         <section id="video-profil" class="relative py-20 bg-emerald-950 text-white overflow-hidden">
-            <!-- Decorative texture -->
             <div class="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 28px 28px;"></div>
             <i class="fa-solid fa-leaf text-emerald-400/10 text-[14rem] absolute -left-10 -bottom-16 pointer-events-none" aria-hidden="true"></i>
 
@@ -432,7 +420,6 @@
                     </p>
                 </div>
 
-                <!-- Google Drive Embedded Video Frame -->
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-slate-950 aspect-video">
                     <iframe src="https://drive.google.com/file/d/1xuENZaa9DNytMF48bOXBDZNmFmzAGWEQ/preview" 
                             class="w-full h-full border-0" 
@@ -448,7 +435,7 @@
                     <span class="flex items-center gap-2"><i class="fa-solid fa-people-group text-emerald-400"></i> Pemberdayaan Masyarakat</span>
                 </div>
             </div>
-        <!-- Wave Divider into Aspek Lingkungan -->
+
             <div class="wave-divider absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
                 <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
                     <path fill="#f1f5f9" d="M0,40 C360,0 1080,80 1440,24 L1440,80 L0,80 Z"></path>
@@ -468,12 +455,12 @@
                     Aspek & Program Kerja Lingkungan
                 </h2>
                 <p class="text-slate-600 mt-3 text-base">
-                    Dua pilar utama pelestarian keanekaragaman hayati yang dikelola oleh UBP Bukittinggi di sekitar wilayah operasional PLTA.
+                    Pilar utama pelestarian keanekaragaman hayati dan pusat database dokumentasi pekerjaan yang dikelola oleh UBP Bukittinggi.
                 </p>
             </div>
 
-            <!-- Program Cards Grid: Flora & Fauna -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Program Cards Grid (3 Subsite Card) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
                 <!-- Sub Site 1: Flora -->
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
@@ -491,7 +478,7 @@
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pelestarian Flora & Reboisasi Kawasan Tangkapan Air</h3>
                             <p class="text-slate-600 text-sm leading-relaxed">
-                                Penanaman ribuan bibit pohon endemik di area catchment DAS Maninjau, Singkarak, dan Batang Agam guna mencegah sedimentasi, memelihara resapan air tanah, serta menjaga keanekaragaman flora lokal di sekeliling reservoir pembangkit.
+                                Penanaman ribuan bibit pohon endemik di area catchment DAS Maninjau, Singkarak, dan Batang Agam guna mencegah sedimentasi, memelihara resapan air tanah, serta menjaga keanekaragaman flora lokal.
                             </p>
                         </div>
                         <a href="sub site/flora detail.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
@@ -517,7 +504,7 @@
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-2.5">Konservasi Ikan Bilih & Fauna Endemik Danau</h3>
                             <p class="text-slate-600 text-sm leading-relaxed">
-                                Kolaborasi riset konservasi ikan bilih khas Danau Singkarak, pemantauan biota danau di sekitar intake air, serta perlindungan habitat satwa endemik yang bergantung pada ekosistem DAS Maninjau, Singkarak, dan Batang Agam.
+                                Kolaborasi riset konservasi ikan bilih khas Danau Singkarak, pemantauan biota danau di sekitar intake air, serta perlindungan habitat satwa endemik di wilayah operasional PLTA.
                             </p>
                         </div>
                         <a href="sub site/fauna detail.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
@@ -527,34 +514,34 @@
                     </div>
                 </div>
 
+                <!-- Sub Site 3: Direct ke HTML Baru database.html -->
+                <div class="bg-white rounded-2xl border border-teal-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative h-48 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=800&q=80" alt="Database Dokumentasi PDF" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-teal-50/95 text-teal-700 border border-teal-100 flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-folder-open text-amber-500"></i> Sub Site Dokumentasi
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2.5">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-file-pdf text-red-500"></i> Berkas PDF Pekerjaan</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2.5">Database Dokumentasi PDF Flora & Fauna</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Pusat pencarian dan pratinjau arsip dokumen PDF hasil pelaksanaan kegiatan, laporan pemantauan, berita acara, serta laporan resmi pelestarian flora dan fauna.
+                            </p>
+                        </div>
+                        <a href="database.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-teal-50 text-slate-700 hover:text-teal-700 border border-slate-200 hover:border-teal-200 text-sm font-semibold transition-colors group/btn">
+                            <span>Buka Halaman Database PDF</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <!-- Sub Site 3: Database Dokumentasi PDF Flora & Fauna -->
-<div class="bg-white rounded-2xl border border-teal-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-    <div class="relative h-48 bg-slate-900 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=800&q=80" alt="Database Dokumentasi PDF" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
-        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-teal-50/95 text-teal-700 border border-teal-100 flex items-center gap-1.5 shadow-sm">
-            <i class="fa-solid fa-folder-open text-amber-500"></i> Sub Site Dokumentasi
-        </span>
-    </div>
-    <div class="p-6 flex-1 flex flex-col justify-between">
-        <div>
-            <div class="flex items-center gap-2 mb-2.5">
-                <span class="text-xs text-slate-400"><i class="fa-solid fa-file-pdf text-red-500"></i> Arsip Digital Pekerjaan</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2.5">Database Dokumentasi PDF Flora & Fauna</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-                Pusat pencarian dan pratinjau arsip dokumen PDF hasil pelaksanaan kegiatan, laporan pemantauan, berita acara, serta laporan resmi pelestarian flora dan fauna.
-            </p>
-        </div>
-        <!-- Tombol Direct ke Halaman Subsite HTML Baru -->
-        <a href="sub site/database pdf detail.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-teal-50 text-slate-700 hover:text-teal-700 border border-slate-200 hover:border-teal-200 text-sm font-semibold transition-colors group/btn">
-            <span>Buka Database Dokumentasi</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
-        </a>
-    </div>
-</div>
     </section>
 
     <!-- ================= 3. MENU GALERI & SERTIFIKASI ================= -->
@@ -739,7 +726,7 @@
                             <h3 class="text-xl font-bold text-slate-900">Cindy</h3>
                             <p class="text-xs font-semibold text-teal-700 mb-3">Helper Lingkungan UBP Bukittinggi</p>
                             <p class="text-sm text-slate-600 leading-relaxed">
-                                Bertanggung jawab atas administrasi dan pengendalian dokumen kepatuhan lingkungan, pemantauan data kualitas serta pemakaian air, dan dokumentasi program CSR, guna memastikan akurasi data operasional serta kelancaran pelaporan berkala.
+                                Bertanggung jawab atas administrasi dan pengendalian dokumen kepatuhan lingkungan, pemantauan data kualitas serta pemakaian air, dan dokumentasi program CSR.
                             </p>
                         </div>
                         <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
@@ -752,7 +739,6 @@
             </div>
         </div>
 
-        <!-- Wave Divider into Footer -->
         <div class="wave-divider relative -mb-1" aria-hidden="true">
             <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
                 <path fill="#0f172a" d="M0,30 C400,70 1040,0 1440,34 L1440,70 L0,70 Z"></path>
@@ -763,15 +749,12 @@
     <!-- ================= LIGHTBOX / MODAL PREVIEW ================= -->
     <div id="imageModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
-            <!-- Close Button -->
             <button id="closeModalBtn" class="absolute top-4 right-4 w-9 h-9 bg-slate-900/70 hover:bg-slate-900 text-white rounded-full flex items-center justify-center transition-colors z-10">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <!-- Modal Image -->
             <div class="max-h-[65vh] overflow-hidden bg-slate-100 flex items-center justify-center">
                 <img id="modalImg" src="" alt="Certificate Preview" class="w-full h-full object-contain">
             </div>
-            <!-- Modal Content -->
             <div class="p-6 bg-white border-t border-slate-100">
                 <h3 id="modalTitle" class="text-xl font-bold text-slate-900">Judul Sertifikat</h3>
                 <p id="modalDesc" class="text-sm text-slate-600 mt-2 leading-relaxed">Deskripsi penghargaan dan detail sertifikasi.</p>
@@ -783,7 +766,6 @@
     <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <!-- Col 1: Unit Info (Teks Saja Tanpa Logo) -->
                 <div class="md:col-span-5 space-y-3">
                     <div>
                         <h4 class="font-extrabold text-white text-base">PT PLN Indonesia Power</h4>
@@ -794,7 +776,6 @@
                     </p>
                 </div>
 
-                <!-- Col 2: Navigasi Cepat -->
                 <div class="md:col-span-3 space-y-3">
                     <h5 class="font-bold text-white uppercase text-xs tracking-wider">Navigasi Halaman</h5>
                     <ul class="space-y-2 text-sm">
@@ -806,7 +787,6 @@
                     </ul>
                 </div>
 
-                <!-- Col 3: Kontak & Unit PLTA -->
                 <div class="md:col-span-4 space-y-3">
                     <h5 class="font-bold text-white uppercase text-xs tracking-wider">Wilayah Operasional</h5>
                     <ul class="space-y-2 text-sm text-slate-400">
@@ -817,7 +797,6 @@
                 </div>
             </div>
 
-            <!-- Copyright -->
             <div class="pt-8 mt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
                 <p>&copy; 2026 PT PLN Indonesia Power UBP Bukittinggi. All Rights Reserved.</p>
                 <div class="flex items-center gap-4">
@@ -829,7 +808,7 @@
         </div>
     </footer>
 
-    <!-- ================= BACK TO TOP (Eco Button) ================= -->
+    <!-- ================= BACK TO TOP ================= -->
     <button id="backToTop" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-lg hover:shadow-emerald-500/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-3">
         <i class="fa-solid fa-leaf"></i>
     </button>
@@ -854,7 +833,6 @@
             }
         });
 
-        // Close mobile menu on clicking any navigation link
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -886,7 +864,6 @@
             });
         });
 
-        // Handler Penutupan Modal
         const closeModal = () => {
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
@@ -899,21 +876,13 @@
             }
         });
 
-        // Menutup modal dengan tombol ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
             }
         });
 
-        // 3. Video Profil - fallback jika file belum tersedia
-        function handleVideoError(video) {
-            video.style.display = 'none';
-            const fallback = document.getElementById('videoFallback');
-            if (fallback) fallback.classList.remove('hidden');
-        }
-
-        // 4. Animasi Angka (Count-Up) untuk Metrik Profil Unit
+        // 3. Animasi Angka (Count-Up)
         const counters = document.querySelectorAll('.counter');
         if (counters.length) {
             const animateCounter = (el) => {
@@ -940,7 +909,7 @@
             counters.forEach(c => counterObserver.observe(c));
         }
 
-        // 5. Tombol Kembali ke Atas
+        // 4. Tombol Kembali ke Atas
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
