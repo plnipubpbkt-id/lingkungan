@@ -413,7 +413,7 @@
             </div>
         </section>
 
-        <!-- ================= VIDEO PROFIL UNIT ================= -->
+        <!-- ================= VIDEO PROFIL UNIT (STREAMING GOOGLE DRIVE) ================= -->
         <section id="video-profil" class="relative py-20 bg-emerald-950 text-white overflow-hidden">
             <!-- Decorative texture -->
             <div class="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0); background-size: 28px 28px;"></div>
@@ -432,23 +432,14 @@
                     </p>
                 </div>
 
+                <!-- Google Drive Embedded Video Frame -->
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-slate-950 aspect-video">
-                    <video id="profileVideo" controls playsinline preload="metadata"
-                           poster="foto unit/lingkungan bukittinggi.mp4"
-                           onerror="handleVideoError(this)"
-                           class="w-full h-full object-cover">
-                        <source src="foto unit/lingkungan bukittinggi.mp4" type="video/mp4">
-                        Peramban Anda tidak mendukung pemutaran video HTML5.
-                    </video>
-                    <div id="videoFallback" class="hidden absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-900 text-slate-300 text-center px-6">
-                        <i class="fa-solid fa-video-slash text-3xl text-emerald-400"></i>
-                        <p class="text-sm max-w-sm leading-relaxed">
-                            Video belum ditemukan. Letakkan berkas video pada folder yang sama dengan foto unit
-                            (<code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">foto unit/</code>)
-                            dengan nama
-                            <code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">profil ubp bukittinggi.mp4</code>.
-                        </p>
-                    </div>
+                    <iframe src="https://drive.google.com/file/d/1xuENZaa9DNytMF48bOXBDZNmFmzAGWEQ/preview" 
+                            class="w-full h-full border-0" 
+                            allow="autoplay; encrypted-media; picture-in-picture" 
+                            allowfullscreen
+                            title="Video Profil UBP Bukittinggi Google Drive">
+                    </iframe>
                 </div>
 
                 <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-sm text-emerald-100/70">
@@ -457,8 +448,7 @@
                     <span class="flex items-center gap-2"><i class="fa-solid fa-people-group text-emerald-400"></i> Pemberdayaan Masyarakat</span>
                 </div>
             </div>
-
-            <!-- Wave Divider into Aspek Lingkungan -->
+        <!-- Wave Divider into Aspek Lingkungan -->
             <div class="wave-divider absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
                 <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
                     <path fill="#f1f5f9" d="M0,40 C360,0 1080,80 1440,24 L1440,80 L0,80 Z"></path>
