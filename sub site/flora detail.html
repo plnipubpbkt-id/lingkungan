@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#009b4d">
+    <title>Pelestarian Flora - PT PLN Indonesia Power UBP Bukittinggi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: { pln: { blue: '#005696', lightBlue: '#00a3e0', green: '#009b4d', yellow: '#f8d100', dark: '#0f172a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, rgba(4, 45, 66, 0.92) 0%, rgba(0, 86, 150, 0.85) 45%, rgba(0, 128, 94, 0.88) 100%); }
+        .wave-divider { line-height: 0; }
+        .wave-divider svg { display: block; width: 100%; height: auto; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #009b4d; border-radius: 9999px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex flex-col py-1">
+                    <span class="block text-[10px] sm:text-xs font-bold tracking-wider text-slate-500 uppercase">PLN Indonesia Power</span>
+                    <span class="block text-sm sm:text-lg font-extrabold text-slate-900 tracking-tight">UBP Bukittinggi - PLTA Maninjau</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span id="syncStatus" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Menghubungkan Sheets...
+                    </span>
+                    <a href="../index.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 text-xs sm:text-sm font-semibold transition-colors">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Kembali</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-slate-900 text-white py-16 sm:py-20">
+        <div class="absolute inset-0 z-0">
+            <img src="../eviden/flora/flora.JPG" alt="Pelestarian Flora PLTA Maninjau" class="w-full h-full object-cover opacity-35">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/15 text-emerald-200 backdrop-blur-sm mb-5 border border-white/20">
+                <i class="fa-solid fa-seedling"></i> Sub Site KEHATI PLTA Maninjau
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+                Pelestarian Flora & Reboisasi Catchment Area
+            </h1>
+            <p class="text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl">
+                Laporan Data Absolut dan Kecenderungan Keanekaragaman Hayati Flora (2022-2026) PT PLN Indonesia Power UBP Bukittinggi Sub Unit PLTA Maninjau.
+            </p>
+        </div>
+        <div class="wave-divider absolute bottom-0 left-0 right-0 z-10 pointer-events-none" aria-hidden="true">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#f8fafc" d="M0,40 C360,0 1080,80 1440,24 L1440,80 L0,80 Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- KONTEN UTAMA -->
+    <section class="py-12 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+            <!-- METRIK INDEKS & GRAFIK VISUALISASI FLORA -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Metode Shannon-Wiener</span>
+                        <h2 class="text-xl font-bold text-slate-900 mt-1 mb-4">Indeks KEHATI Flora (H')</h2>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Pemantauan tutupan hijau dan penanaman vegetasi pencegah erosi di sekeliling catchment area Danau Maninjau.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-center text-xs">
+                        <div class="bg-slate-100 p-2.5 rounded-xl border">
+                            <span class="block text-slate-500 font-medium">2024</span>
+                            <span class="text-lg font-bold text-slate-800">1,099</span>
+                        </div>
+                        <div class="bg-emerald-100 p-2.5 rounded-xl border border-emerald-300">
+                            <span class="block text-slate-500 font-medium">2026*</span>
+                            <span class="text-lg font-bold text-emerald-800">1,242</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-column text-emerald-600"></i>
+                        Grafik Realtime Pertumbuhan Flora (2022–2026)
+                    </h3>
+                    <div class="relative h-64 sm:h-72">
+                        <canvas id="floraChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAIL PROGRAM FLORA & EVIDEN -->
+            <div class="space-y-10">
+                <!-- 1. Pohon Aren Maninjau -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                    <div class="space-y-3 mb-6">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Spesies: Arenga pinnata</span>
+                        <h3 class="text-2xl font-bold text-slate-900">1. Budidaya Pohon Aren Maninjau</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Program pemberdayaan masyarakat berbasis konservasi lahan di daerah tangkapan air (catchment area). Pohon Aren efektif mencegah erosi perbukitan serta memberikan hasil nira berkelanjutan.
+                        </p>
+                    </div>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3"><i class="fa-solid fa-camera mr-1"></i> Bukti Eviden Kegiatan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/flora/aren 1.png" alt="Sosialisasi Penanaman Pohon Aren" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 1: Sosialisasi & Serah Terima Bibit Aren di Nagari Koto Malintang</div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/flora/aren 2.png" alt="Penanaman Bibit Aren Maninjau" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 2: Penanaman Bibit Pohon Aren di Area Perbukitan Tangkapan Air</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Penghijauan Pohon Buah -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                    <div class="space-y-3 mb-6">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Spesies: Persea americana, Nephelium lappaceum, Syzygium malaccense</span>
+                        <h3 class="text-2xl font-bold text-slate-900">2. Penghijauan Pohon Buah Area Danau Maninjau</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Penanaman pohon buah produktif di lahan masyarakat dan penyangga danau untuk meningkatkan tutupan hijau serta daya serap air tanah.
+                        </p>
+                    </div>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3"><i class="fa-solid fa-camera mr-1"></i> Bukti Eviden Kegiatan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/flora/aren 4.png" alt="Penyerahan Bibit Pohon Buah" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 1: Penyerahan Bibit Pohon Buah Produktif Kepada Masyarakat</div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/flora/aren 3.png" alt="Aksi Penanaman Sempadan Danau" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 2: Aksi Penanaman Pohon Buah Bersama di Sempadan Danau</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABEL REKAPITULASI FLORA -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm overflow-x-auto">
+                <h3 class="text-lg font-bold text-slate-900 mb-4">Rekap Data Absolut Flora (2022–2026*)</h3>
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold border-b">
+                            <th class="p-3">No</th>
+                            <th class="p-3">Nama Pohon / Spesies</th>
+                            <th class="p-3">Status P.106 / IUCN</th>
+                            <th class="p-3">2022</th>
+                            <th class="p-3">2023</th>
+                            <th class="p-3">2024</th>
+                            <th class="p-3">2025</th>
+                            <th class="p-3">2026*</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr>
+                            <td class="p-3 font-semibold">1</td>
+                            <td class="p-3">Pohon Aren (<i>Arenga pinnata</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / LC</td>
+                            <td class="p-3">0</td>
+                            <td class="p-3">0</td>
+                            <td class="p-3">0</td>
+                            <td class="p-3">100</td>
+                            <td class="p-3 font-bold text-emerald-700">300</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">2</td>
+                            <td class="p-3">Alpukat (<i>Persea americana</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / LC</td>
+                            <td class="p-3">35</td>
+                            <td class="p-3">40</td>
+                            <td class="p-3">50</td>
+                            <td class="p-3">70</td>
+                            <td class="p-3 font-bold text-emerald-700">100</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">3</td>
+                            <td class="p-3">Rambutan Binjai (<i>Nephelium lappaceum</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / LC</td>
+                            <td class="p-3">35</td>
+                            <td class="p-3">40</td>
+                            <td class="p-3">50</td>
+                            <td class="p-3">70</td>
+                            <td class="p-3 font-bold text-emerald-700">100</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">4</td>
+                            <td class="p-3">Jambu Bol (<i>Syzygium malaccense</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / LC</td>
+                            <td class="p-3">35</td>
+                            <td class="p-3">40</td>
+                            <td class="p-3">50</td>
+                            <td class="p-3">70</td>
+                            <td class="p-3 font-bold text-emerald-700">100</td>
+                        </tr>
+                        <tr class="bg-slate-50 font-bold">
+                            <td colspan="3" class="p-3 text-right">Total Batang Flora:</td>
+                            <td class="p-3">105</td>
+                            <td class="p-3">120</td>
+                            <td class="p-3">150</td>
+                            <td class="p-3 text-emerald-700">310</td>
+                            <td class="p-3 text-emerald-700">600</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-[11px] text-slate-400 mt-2">* Data terhubung langsung dari Google Sheets Realtime</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p>&copy; 2026 PT PLN Indonesia Power UBP Bukittinggi - Sub Unit PLTA Maninjau.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT REALTIME SINKRONISASI CSV GOOGLE SHEETS -->
+    <script>
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRTqRUPeg1FVSLenOqN7MCi5aUlJBTH8y_aiKDSti28AOvOd6L1l9tMyldXoMKghcLdTnZzj-I2Bpt4/pub?gid=1421217869&single=true&output=csv';
+
+        const ctxFlora = document.getElementById('floraChart').getContext('2d');
+        const floraChart = new Chart(ctxFlora, {
+            type: 'bar',
+            data: {
+                labels: ['2022', '2023', '2024', '2025', '2026*'],
+                datasets: [
+                    { label: 'Pohon Aren', data: [0, 0, 0, 100, 300], backgroundColor: '#047857' },
+                    { label: 'Alpukat', data: [35, 40, 50, 70, 100], backgroundColor: '#10b981' },
+                    { label: 'Rambutan Binjai', data: [35, 40, 50, 70, 100], backgroundColor: '#34d399' },
+                    { label: 'Jambu Bol', data: [35, 40, 50, 70, 100], backgroundColor: '#a7f3d0' }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } } }
+        });
+
+        async function syncFloraData() {
+            const statusEl = document.getElementById('syncStatus');
+            try {
+                const response = await fetch(CSV_URL);
+                if (!response.ok) throw new Error("Gagal mengambil CSV");
+                const textData = await response.text();
+                
+                const lines = textData.split('\n').map(line => line.split(','));
+                
+                // Cari baris data flora berdasarkan nama program
+                const arenRow     = lines.find(r => r[1] && r[1].includes("Aren"));
+                const alpukatRow  = lines.find(r => r[1] && r[1].includes("Alpukat"));
+                const rambutanRow = lines.find(r => r[1] && r[1].includes("Rambutan"));
+                const jambuRow    = lines.find(r => r[1] && r[1].includes("Jambu"));
+
+                if (arenRow && alpukatRow && rambutanRow && jambuRow) {
+                    floraChart.data.datasets[0].data = arenRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+                    floraChart.data.datasets[1].data = alpukatRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+                    floraChart.data.datasets[2].data = rambutanRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+                    floraChart.data.datasets[3].data = jambuRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+                    floraChart.update();
+
+                    statusEl.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200";
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> Realtime Sheets Connected';
+                }
+            } catch (err) {
+                console.warn("Gagal load CSV langsung (CORS/Offline). Menggunakan data standar.", err);
+                statusEl.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200";
+                statusEl.innerHTML = '<i class="fa-solid fa-database"></i> Data Standar Active';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', syncFloraData);
+    </script>
+</body>
+</html>

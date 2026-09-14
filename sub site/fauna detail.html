@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#005696">
+    <title>Pelestarian Fauna - PT PLN Indonesia Power UBP Bukittinggi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: { pln: { blue: '#005696', lightBlue: '#00a3e0', green: '#009b4d', yellow: '#f8d100', dark: '#0f172a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, rgba(4, 45, 66, 0.92) 0%, rgba(0, 86, 150, 0.85) 45%, rgba(0, 128, 94, 0.88) 100%); }
+        .wave-divider { line-height: 0; }
+        .wave-divider svg { display: block; width: 100%; height: auto; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #009b4d; border-radius: 9999px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex flex-col py-1">
+                    <span class="block text-[10px] sm:text-xs font-bold tracking-wider text-slate-500 uppercase">PLN Indonesia Power</span>
+                    <span class="block text-sm sm:text-lg font-extrabold text-slate-900 tracking-tight">UBP Bukittinggi - PLTA Maninjau</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span id="syncStatus" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Menghubungkan Sheets...
+                    </span>
+                    <a href="../index.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-pln-blue text-xs sm:text-sm font-semibold transition-colors">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Kembali</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-slate-900 text-white py-16 sm:py-20">
+        <div class="absolute inset-0 z-0">
+            <img src="../eviden/fauna/fauna.png" alt="Pelestarian Fauna PLTA Maninjau" class="w-full h-full object-cover opacity-35">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/15 text-sky-200 backdrop-blur-sm mb-5 border border-white/20">
+                <i class="fa-solid fa-fish"></i> Sub Site KEHATI PLTA Maninjau
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+                Program Perlindungan & Pelestarian Fauna Endemik
+            </h1>
+            <p class="text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl">
+                Laporan Data Absolut dan Kecenderungan Keanekaragaman Hayati Fauna (2022-2026) PT PLN Indonesia Power UBP Bukittinggi Sub Unit PLTA Maninjau.
+            </p>
+        </div>
+        <div class="wave-divider absolute bottom-0 left-0 right-0 z-10 pointer-events-none" aria-hidden="true">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#f8fafc" d="M0,40 C360,0 1080,80 1440,24 L1440,80 L0,80 Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- KONTEN UTAMA -->
+    <section class="py-12 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+            <!-- METRIK INDEKS & GRAFIK VISUALISASI FAUNA -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-pln-blue uppercase tracking-wider">Metode Shannon-Wiener</span>
+                        <h2 class="text-xl font-bold text-slate-900 mt-1 mb-4">Indeks KEHATI Fauna (H')</h2>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Pemantauan tingkat keberagaman fauna perairan dan serangga lokal di kawasan Danau Maninjau.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center">
+                            <span class="block text-xs text-slate-500 font-medium">Tahun 2025</span>
+                            <span class="text-2xl font-extrabold text-pln-blue">0,727</span>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center">
+                            <span class="block text-xs text-slate-500 font-medium">Tahun 2026*</span>
+                            <span class="text-2xl font-extrabold text-emerald-600">0,897</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-pln-blue"></i>
+                        Grafik Realtime Peningkatan Absolut Fauna (2022–2026)
+                    </h3>
+                    <div class="relative h-64 sm:h-72">
+                        <canvas id="faunaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAIL PROGRAM FAUNA & EVIDEN -->
+            <div class="space-y-10">
+                <!-- 1. Ikan Gariang -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                    <div class="space-y-3 mb-6">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-pln-blue">Spesies: Tor douronensis</span>
+                        <h3 class="text-2xl font-bold text-slate-900">1. Program Save Ikan Gariang</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Dilaksanakan sebagai komitmen pelestarian keanekaragaman hayati perairan lokal Danau Maninjau. Ikan Gariang merupakan spesies endemik Sumatera Barat. Upaya pembenihan dan restocking dilakukan secara berkelanjutan.
+                        </p>
+                    </div>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3"><i class="fa-solid fa-camera mr-1"></i> Bukti Eviden Kegiatan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/fauna/gariang 3.png" alt="Pemantauan Kolam Budidaya Ikan Gariang" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 1: Monitoring dan Pemantauan Kolam Budidaya Ikan Gariang</div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/fauna/gariang 4.png" alt="Penebaran Restocking Bibit Ikan Gariang" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 2: Penebaran (Restocking) Bibit Ikan Gariang ke Danau Maninjau</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Lebah Galo-Galo -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                    <div class="space-y-3 mb-6">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Spesies: Tetragonula laeviceps</span>
+                        <h3 class="text-2xl font-bold text-slate-900">2. Lebah Lestari Galo-Galo Berdaya</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Inisiatif pelestarian serangga penyerbuk alami sekaligus pemberdayaan ekonomi masyarakat lokal melalui budidaya lebah tanpa sengat (Trigona spp.).
+                        </p>
+                    </div>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3"><i class="fa-solid fa-camera mr-1"></i> Bukti Eviden Kegiatan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/fauna/lebah 1.png" alt="Stup Lebah Madu Galo-Galo" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 1: Penempatan Kotak Stup Budidaya Lebah Galo-Galo</div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/fauna/lebah 2.png" alt="Pemeriksaan Koloni Lebah" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 2: Pemeriksaan Perkembangan Koloni & Vegetasi Penyerbuk</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Ikan Asang -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+                    <div class="space-y-3 mb-6">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Spesies: Osteochilus vittatus</span>
+                        <h3 class="text-2xl font-bold text-slate-900">3. Program Budidaya Ikan Asang</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Pelestarian spesies indikator kualitas perairan danau. Program berfokus pada pembenihan, pembesaran, dan pemeliharaan habitat asli.
+                        </p>
+                    </div>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3"><i class="fa-solid fa-camera mr-1"></i> Bukti Eviden Kegiatan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/fauna/asang 2.png" alt="Saluran Pembenihan Ikan Asang" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 1: Pembuatan & Perawatan Bak Pembenihan Ikan Asang</div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                            <img src="../eviden/fauna/asang 1.png" alt="Pemeriksaan Biota Air" class="w-full h-48 object-cover">
+                            <div class="p-3 text-xs text-slate-600 font-medium">Eviden 2: Pengawasan Biota & Kualitas Air Danau Maninjau</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABEL REKAPITULASI FAUNA -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm overflow-x-auto">
+                <h3 class="text-lg font-bold text-slate-900 mb-4">Rekap Data Absolut Fauna (2022–2026*)</h3>
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold border-b">
+                            <th class="p-3">No</th>
+                            <th class="p-3">Nama Program / Spesies</th>
+                            <th class="p-3">Status P.106 / IUCN</th>
+                            <th class="p-3">2022</th>
+                            <th class="p-3">2023</th>
+                            <th class="p-3">2024</th>
+                            <th class="p-3">2025</th>
+                            <th class="p-3">2026*</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr>
+                            <td class="p-3 font-semibold">1</td>
+                            <td class="p-3">Save Ikan Gariang (<i>Tor douronensis</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / NE</td>
+                            <td class="p-3 cell-gariang-22">0</td>
+                            <td class="p-3 cell-gariang-23">0</td>
+                            <td class="p-3 cell-gariang-24">0</td>
+                            <td class="p-3 cell-gariang-25">20</td>
+                            <td class="p-3 font-bold text-pln-blue cell-gariang-26">80</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">2</td>
+                            <td class="p-3">Lebah Kelulut / Galo-Galo (<i>Tetragonula laeviceps</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / NE</td>
+                            <td class="p-3 cell-lebah-22">0</td>
+                            <td class="p-3 cell-lebah-23">0</td>
+                            <td class="p-3 cell-lebah-24">0</td>
+                            <td class="p-3 cell-lebah-25">200</td>
+                            <td class="p-3 font-bold text-pln-blue cell-lebah-26">290</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">3</td>
+                            <td class="p-3">Budidaya Ikan Asang (<i>Osteochilus vittatus</i>)</td>
+                            <td class="p-3">Tidak Dilindungi / LC</td>
+                            <td class="p-3 cell-asang-22">0</td>
+                            <td class="p-3 cell-asang-23">0</td>
+                            <td class="p-3 cell-asang-24">0</td>
+                            <td class="p-3 cell-asang-25">50</td>
+                            <td class="p-3 font-bold text-pln-blue cell-asang-26">80</td>
+                        </tr>
+                        <tr class="bg-slate-50 font-bold">
+                            <td colspan="3" class="p-3 text-right">Total Individu Fauna:</td>
+                            <td class="p-3 total-22">0</td>
+                            <td class="p-3 total-23">0</td>
+                            <td class="p-3 total-24">0</td>
+                            <td class="p-3 text-emerald-600 total-25">270</td>
+                            <td class="p-3 text-emerald-600 total-26">450</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-[11px] text-slate-400 mt-2">* Data terhubung langsung dari Google Sheets Realtime</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p>&copy; 2026 PT PLN Indonesia Power UBP Bukittinggi - Sub Unit PLTA Maninjau.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT REALTIME SINKRONISASI CSV GOOGLE SHEETS -->
+    <script>
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRTqRUPeg1FVSLenOqN7MCi5aUlJBTH8y_aiKDSti28AOvOd6L1l9tMyldXoMKghcLdTnZzj-I2Bpt4/pub?gid=1421217869&single=true&output=csv';
+
+        const ctxFauna = document.getElementById('faunaChart').getContext('2d');
+        const faunaChart = new Chart(ctxFauna, {
+            type: 'line',
+            data: {
+                labels: ['2022', '2023', '2024', '2025', '2026*'],
+                datasets: [
+                    { label: 'Ikan Gariang (Ekor)', data: [0, 0, 0, 20, 80], borderColor: '#005696', backgroundColor: '#005696', tension: 0.3, borderWidth: 3 },
+                    { label: 'Lebah Galo-Galo (Koloni)', data: [0, 0, 0, 200, 290], borderColor: '#d97706', backgroundColor: '#d97706', tension: 0.3, borderWidth: 3 },
+                    { label: 'Ikan Asang (Ekor)', data: [0, 0, 0, 50, 80], borderColor: '#059669', backgroundColor: '#059669', tension: 0.3, borderWidth: 3 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: true } } }
+        });
+
+        async function syncFaunaData() {
+            const statusEl = document.getElementById('syncStatus');
+            try {
+                const response = await fetch(CSV_URL);
+                if (!response.ok) throw new Error("Gagal mengambil CSV");
+                const textData = await response.text();
+                
+                const lines = textData.split('\n').map(line => line.split(','));
+                
+                // Cari baris data fauna berdasarkan nama program
+                const gariangRow = lines.find(r => r[1] && r[1].includes("Gariang"));
+                const lebahRow   = lines.find(r => r[1] && r[1].includes("Lebah"));
+                const asangRow   = lines.find(r => r[1] && r[1].includes("Asang"));
+
+                if (gariangRow && lebahRow && asangRow) {
+                    const gariangVals = gariangRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+                    const lebahVals   = lebahRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+                    const asangVals   = asangRow.slice(7, 12).map(v => parseInt(v.trim()) || 0);
+
+                    // Update Grafik Chart.js
+                    faunaChart.data.datasets[0].data = gariangVals;
+                    faunaChart.data.datasets[1].data = lebahVals;
+                    faunaChart.data.datasets[2].data = asangVals;
+                    faunaChart.update();
+
+                    // Update status badge header
+                    statusEl.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200";
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> Realtime Sheets Connected';
+                }
+            } catch (err) {
+                console.warn("Gagal load CSV langsung (CORS/Offline). Menggunakan data standar.", err);
+                statusEl.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200";
+                statusEl.innerHTML = '<i class="fa-solid fa-database"></i> Data Standar Active';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', syncFaunaData);
+    </script>
+</body>
+</html>
