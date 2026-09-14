@@ -433,13 +433,22 @@
                 </div>
 
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-slate-950 aspect-video">
-                    <iframe id="profileVideo"
-                            src="https://drive.google.com/file/d/1xuENZaa9DNytMF48bOXBDZNmFmzAGWEQ/preview"
-                            class="w-full h-full"
-                            allow="autoplay; fullscreen"
-                            allowfullscreen
-                            loading="lazy">
-                    </iframe>
+                    <video id="profileVideo" controls playsinline preload="metadata"
+                           poster="foto unit/lingkungan bukittinggi.mp4"
+                           onerror="handleVideoError(this)"
+                           class="w-full h-full object-cover">
+                        <source src="foto unit/lingkungan bukittinggi.mp4" type="video/mp4">
+                        Peramban Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                    <div id="videoFallback" class="hidden absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-900 text-slate-300 text-center px-6">
+                        <i class="fa-solid fa-video-slash text-3xl text-emerald-400"></i>
+                        <p class="text-sm max-w-sm leading-relaxed">
+                            Video belum ditemukan. Letakkan berkas video pada folder yang sama dengan foto unit
+                            (<code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">foto unit/</code>)
+                            dengan nama
+                            <code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">profil ubp bukittinggi.mp4</code>.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-sm text-emerald-100/70">
@@ -479,7 +488,7 @@
                 <!-- Sub Site 1: Flora -->
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Pelestarian Flora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img src="eviden/flora/flora.JPG" alt="Pelestarian Flora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
                         <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50/95 text-emerald-700 border border-emerald-100">
                             <i class="fa-solid fa-seedling mr-1"></i> Flora
@@ -495,7 +504,7 @@
                                 Penanaman ribuan bibit pohon endemik di area catchment DAS Maninjau, Singkarak, dan Batang Agam guna mencegah sedimentasi, memelihara resapan air tanah, serta menjaga keanekaragaman flora lokal di sekeliling reservoir pembangkit.
                             </p>
                         </div>
-                        <a href="sub site/flora.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
+                        <a href="sub site/flora detail.html.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
                             <span>Pelajari Rincian Program</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
                         </a>
@@ -505,7 +514,7 @@
                 <!-- Sub Site 2: Fauna -->
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?auto=format&fit=crop&w=800&q=80" alt="Pelestarian Fauna" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img src="eviden/fauna/fauna.png" alt="Pelestarian Fauna" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
                         <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50/95 text-blue-700 border border-blue-100">
                             <i class="fa-solid fa-fish mr-1"></i> Fauna
@@ -521,7 +530,7 @@
                                 Kolaborasi riset konservasi ikan bilih khas Danau Singkarak, pemantauan biota danau di sekitar intake air, serta perlindungan habitat satwa endemik yang bergantung pada ekosistem DAS Maninjau, Singkarak, dan Batang Agam.
                             </p>
                         </div>
-                        <a href="sub site/fauna.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
+                        <a href="sub site/fauna detail.html.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
                             <span>Pelajari Rincian Program</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
                         </a>
