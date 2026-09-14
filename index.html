@@ -2,7 +2,12 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#005696">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <title>Sistem Pengelolaan Lingkungan - PT PLN Indonesia Power UBP Bukittinggi</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -81,6 +86,46 @@
         }
 
         #backToTop { transition: opacity 0.3s ease, transform 0.3s ease; }
+
+        /* ---- Penyesuaian tampilan mobile (Android & iOS) - tema tetap sama ---- */
+        html { -webkit-text-size-adjust: 100%; }
+        body { overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
+
+        /* Hormati notch / safe-area iPhone tanpa mengubah tema */
+        header.sticky {
+            padding-top: env(safe-area-inset-top);
+        }
+        #backToTop {
+            bottom: calc(1.5rem + env(safe-area-inset-bottom));
+            right: calc(1.5rem + env(safe-area-inset-left));
+        }
+
+        /* Tipografi lebih nyaman di layar kecil, tetap proporsional di desktop */
+        @media (max-width: 767px) {
+            h1 { font-size: clamp(1.75rem, 6vw, 2.25rem) !important; line-height: 1.25 !important; }
+            h2 { font-size: clamp(1.5rem, 5.5vw, 1.875rem) !important; }
+            h3 { font-size: clamp(1.125rem, 4.5vw, 1.375rem) !important; }
+            section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+
+            /* Target sentuh lebih besar & nyaman untuk jari (Android/iOS) */
+            a, button { -webkit-tap-highlight-color: rgba(0,155,77,0.15); }
+            .mobile-nav-link { min-height: 48px; display: flex; align-items: center; }
+            #mobileMenuBtn { min-width: 44px; min-height: 44px; }
+
+            /* Kartu & tombol jadi full-width, gap lebih rapat agar tidak sesak */
+            .grid { row-gap: 1.25rem; }
+
+            /* Hero tetap penuh tapi padding disesuaikan agar teks tidak terlalu turun */
+            #beranda section.relative.overflow-hidden { padding-top: 3.5rem; padding-bottom: 4.5rem; }
+        }
+
+        /* Cegah gambar besar merusak layout di layar sempit */
+        img { max-width: 100%; height: auto; }
+
+        /* Scrollbar custom disembunyikan di mobile agar tampilan lebih rapi (fungsi scroll tetap normal) */
+        @media (max-width: 767px) {
+            ::-webkit-scrollbar { width: 0px; background: transparent; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
@@ -208,17 +253,17 @@
                         </p>
 
                         <!-- Key Metrics -->
-                        <div class="grid grid-cols-3 gap-4 pt-4 counter-group">
-                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
-                                <span class="block text-2xl font-black text-emerald-600"><span class="counter" data-target="100" data-suffix="%">0</span></span>
+                        <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 counter-group">
+                            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                                <span class="block text-lg sm:text-2xl font-black text-emerald-600"><span class="counter" data-target="100" data-suffix="%">0</span></span>
                                 <span class="text-xs font-medium text-slate-500">Energi Terbarukan (EBT)</span>
                             </div>
-                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
-                                <span class="block text-2xl font-black text-pln-blue"><span class="counter" data-target="3" data-suffix=" Unit">0</span></span>
+                            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                                <span class="block text-lg sm:text-2xl font-black text-pln-blue"><span class="counter" data-target="3" data-suffix=" Unit">0</span></span>
                                 <span class="text-xs font-medium text-slate-500">Pembangkit PLTA</span>
                             </div>
-                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
-                                <span class="block text-2xl font-black text-teal-600">PROPER</span>
+                            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                                <span class="block text-lg sm:text-2xl font-black text-teal-600">PROPER</span>
                                 <span class="text-xs font-medium text-slate-500">Ketaatan Lingkungan</span>
                             </div>
                         </div>
@@ -424,141 +469,61 @@
                     Aspek & Program Kerja Lingkungan
                 </h2>
                 <p class="text-slate-600 mt-3 text-base">
-                    Implementasi nyata program konservasi dan perlindungan lingkungan hidup yang dikelola oleh UBP Bukittinggi di sekitar unit kerja.
+                    Dua pilar utama pelestarian keanekaragaman hayati yang dikelola oleh UBP Bukittinggi di sekitar wilayah operasional PLTA.
                 </p>
             </div>
 
-            <!-- Program Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Program 1 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">
-                                Konservasi Air
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Danau Maninjau</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Konservasi & Pembersihan DAS Maninjau</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Program rutin pembersihan eceng gondok, pemantauan kualitas baku mutu air danau, dan penataan sempadan untuk menjaga kelangsungan operasional turbin dan biota danau.
-                        </p>
+            <!-- Program Cards Grid: Flora & Fauna -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <!-- Sub Site 1: Flora -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Pelestarian Flora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50/95 text-emerald-700 border border-emerald-100">
+                            <i class="fa-solid fa-seedling mr-1"></i> Flora
+                        </span>
                     </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <a href="sub site/konversi DAS SECOND.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2.5">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Wilayah Tangkapan Air & Sekitar Danau</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pelestarian Flora & Reboisasi Kawasan Tangkapan Air</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Penanaman ribuan bibit pohon endemik di area catchment DAS Maninjau, Singkarak, dan Batang Agam guna mencegah sedimentasi, memelihara resapan air tanah, serta menjaga keanekaragaman flora lokal di sekeliling reservoir pembangkit.
+                            </p>
+                        </div>
+                        <a href="sub site/flora.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
                             <span>Pelajari Rincian Program</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Program 2 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
-                                Penghijauan Hulu
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Wilayah Tangkapan Air</span>
+                <!-- Sub Site 2: Fauna -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?auto=format&fit=crop&w=800&q=80" alt="Pelestarian Fauna" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50/95 text-blue-700 border border-blue-100">
+                            <i class="fa-solid fa-fish mr-1"></i> Fauna
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2.5">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Danau Singkarak & Sekitar Reservoir</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2.5">Konservasi Ikan Bilih & Fauna Endemik Danau</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Kolaborasi riset konservasi ikan bilih khas Danau Singkarak, pemantauan biota danau di sekitar intake air, serta perlindungan habitat satwa endemik yang bergantung pada ekosistem DAS Maninjau, Singkarak, dan Batang Agam.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Reboisasi & Penanaman Pohon Pelindung</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Penanaman ribuan bibit pohon endemik di area catchment area DAS Singkarak dan Batang Agam guna mencegah sedimentasi dan memelihara resapan air tanah.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <a href="sub site/reboisasi.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
+                        <a href="sub site/fauna.html" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group/btn">
                             <span>Pelajari Rincian Program</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 3 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">
-                                Safe Operations
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Semua Unit PLTA</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pengelolaan Limbah B3 Berstandar KLHK</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Tata kelola penampungan oli bekas, aki, dan material operasional beracun dengan fasilitas TPS Limbah B3 berizin resmi dan pengangkutan pihak ketiga tersertifikasi.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <a href="sub site/pengelolaan_limbah.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
-                            <span>Pelajari Rincian Program</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 4 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-100">
-                                Reduksi Karbon
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Bukittinggi</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Efisiensi Energi & Reduksi Emisi GRK</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Penerapan manajemen efisiensi daya internal gedung kantor, pemasangan solar panel rooftop pembantu, serta inventarisasi gas rumah kaca (GRK) periodik.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <a href="sub site/efisiensi energi second.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
-                            <span>Pelajari Rincian Program</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 5 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-100">
-                                TJSL / CSR
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Komunitas Lokal</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pemberdayaan Bank Sampah & Ekowisata</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Pendampingan kelompok masyarakat lokal dalam pengolahan sampah organik menjadi pupuk kompos dan pengembangan wisata alam berbasis edukasi lingkungan.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <a href="sub site/pemberdayaan_bank_sampah.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
-                            <span>Pelajari Rincian Program</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Program 6 -->
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between gap-2 mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">
-                                Biodiversitas
-                            </span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot"></i> Batang Agam & Singkarak</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2.5">Pelestarian Ikan Bilih & Flora Endemik</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Kolaborasi riset konservasi ikan bilih khas Danau Singkarak serta penjagaan keanekaragaman flora lokal di sekeliling reservoir pembangkit.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <a href="sub site/ikan bilih second.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-200 text-sm font-semibold transition-colors group">
-                            <span>Pelajari Rincian Program</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
                         </a>
                     </div>
                 </div>
@@ -578,7 +543,7 @@
                     Galeri Sertifikat Lingkungan
                 </h2>
                 <p class="text-slate-600 mt-3 text-base">
-                    Bukti komitmen dan pengakuan resmi atas kepatuhan standar mutu lingkungan hidup tingkat nasional. Klik gambar untuk melihat pratinjau resolusi tinggi.
+                    Bukti komitmen dan pengakuan resmi atas kepatuhan standar mutu lingkungan hidup tingkat nasional dan internasional. Klik gambar untuk melihat pratinjau resolusi tinggi.
                 </p>
             </div>
 
@@ -594,7 +559,7 @@
                         <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80" alt="ISO 14001" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-4 bg-white">
-                        <span class="text-xs font-semibold text-emerald-600 uppercase">Nasional</span>
+                        <span class="text-xs font-semibold text-emerald-600 uppercase">Internasional</span>
                         <h4 class="font-bold text-slate-900 text-sm mt-0.5">ISO 14001:2015</h4>
                         <p class="text-xs text-slate-500 mt-1">Sistem Manajemen Lingkungan</p>
                     </div>
@@ -635,7 +600,7 @@
                     </div>
                     <div class="p-4 bg-white">
                         <span class="text-xs font-semibold text-pln-blue uppercase">Kemenaker</span>
-                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">ajo tampan</h4>
+                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">Zero Accident Award</h4>
                         <p class="text-xs text-slate-500 mt-1">Keselamatan & K3 Lingkungan</p>
                     </div>
                     <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
@@ -643,7 +608,8 @@
                             <i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Sertifikat
                         </span>
                     </div>
-                </div>        
+                </div>
+
                 <!-- Sertifikat 4 -->
                 <div class="gallery-card group relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
                      data-title="Sertifikat ISO 50001:2018"
@@ -653,8 +619,8 @@
                         <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="ISO 50001" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-4 bg-white">
-                        <span class="text-xs font-semibold text-teal-600 uppercase">Nasional</span>
-                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">Divisi Terbaik</h4>
+                        <span class="text-xs font-semibold text-teal-600 uppercase">Internasional</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-0.5">ISO 50001:2018</h4>
                         <p class="text-xs text-slate-500 mt-1">Sistem Manajemen Energi</p>
                     </div>
                     <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
@@ -915,7 +881,14 @@
             }
         });
 
-        // 3. Animasi Angka (Count-Up) untuk Metrik Profil Unit
+        // 3. Video Profil - fallback jika file belum tersedia
+        function handleVideoError(video) {
+            video.style.display = 'none';
+            const fallback = document.getElementById('videoFallback');
+            if (fallback) fallback.classList.remove('hidden');
+        }
+
+        // 4. Animasi Angka (Count-Up) untuk Metrik Profil Unit
         const counters = document.querySelectorAll('.counter');
         if (counters.length) {
             const animateCounter = (el) => {
